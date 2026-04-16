@@ -7,3 +7,4 @@ outputs/
 *.bin
 temp/
 .DS_Store
+venv/
