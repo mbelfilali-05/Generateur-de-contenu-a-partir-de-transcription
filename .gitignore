@@ -8,3 +8,8 @@ outputs/
 temp/
 .DS_Store
 venv/
+test_*.py
+*.wav
+*.mp3
+*.log
+*.mp4
