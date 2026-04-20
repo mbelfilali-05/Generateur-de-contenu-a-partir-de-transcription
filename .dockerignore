@@ -1,0 +1,30 @@
+# .dockerignore
+
+# Environnement virtuel Python — inutile dans le conteneur
+venv/
+
+# Fichiers sensibles — la clé API sera passée via docker-compose
+.env
+
+# Cache Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Fichiers de test
+test_generator.py
+test_transcriber.py
+test_extractor.py
+test_audio.mp3
+test_video.mp4
+
+# Git
+.git/
+.gitignore
+
+# Fichiers générés
+outputs/
+
+# Fichiers temporaires
+*.wav
+*.tmp

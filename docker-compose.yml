@@ -1,0 +1,30 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  app:
+    # Construit l'image depuis le Dockerfile du dossier courant
+    build: .
+
+    # Nom du conteneur
+    container_name: transcription-content-generator
+
+    # Mappe le port 8501 du conteneur vers le port 8501 de ta machine
+    # Format : "port_machine:port_conteneur"
+    # Accès via http://localhost:8501
+    ports:
+      - "8501:8501"
+
+    # Variables d'environnement — la clé API est lue depuis ton .env local
+    # Elle est injectée dans le conteneur sans être dans le code
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+
+    # Monte le dossier outputs/ en volume
+    # Les fichiers générés dans le conteneur apparaissent sur ta machine
+    volumes:
+      - ./outputs:/app/outputs
+
+    # Redémarre automatiquement si le conteneur plante
+    restart: unless-stopped
